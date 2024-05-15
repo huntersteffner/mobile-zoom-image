@@ -13,6 +13,7 @@ let imageH
 
 
 const onTouchStart = (e) => {
+    console.log('start')
     imageEl = document.getElementById('image')
     if (e.touches.length === 2) {
         scaling = true
@@ -34,6 +35,7 @@ const onTouchStart = (e) => {
 }
 
 const onTouchMove = (e) => {
+    console.log('move')
     if (scaling) {
         var dx = e.touches[0].screenX-e.touches[1].screenX;
         var dy = e.touches[0].screenY-e.touches[1].screenY;
@@ -52,6 +54,7 @@ const onTouchMove = (e) => {
 }
 
 const onTouchEnd = (e) => {
+    console.log('end')
     if (scaling) {
         scaling = false
          imageW = imageEl.style.width
