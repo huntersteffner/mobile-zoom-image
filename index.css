@@ -1,0 +1,31 @@
+body{
+    font-family:"Arial", Helvetica;
+    font-size:14px;
+  }
+  #marker{
+      background-color:#0F0;
+      position:absolute;
+      left:0px;
+      top:0px;
+      width:5px;
+      height:5px;
+      border-radius:5px;
+  }
+  #container{
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      opacity:1;
+      overflow:hidden;
+  }
+  #fgDiv{
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      background-color:#F00;
+      opacity:0;
+  }
