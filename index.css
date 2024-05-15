@@ -29,3 +29,6 @@ body{
       background-color:#F00;
       opacity:0;
   }
+  #image {
+    z-index: 20
+  }
