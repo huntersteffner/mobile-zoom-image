@@ -46,7 +46,9 @@ const onTouchMove = (e) => {
 
         if ((imageW * scale) > 50) {
             imageEl.style.width = (imageW*scale) + 'px'
+            console.log('width', (imageW*scale) + 'px')
             imageEl.style.height = (imageH*scale) + 'px'
+            console.log('height', (imageW*scale) + 'px')
         }
 
         e.preventDefault()
