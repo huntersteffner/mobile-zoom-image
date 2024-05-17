@@ -47,6 +47,10 @@ const onTouchStart = (e) => {
         imageW = imageEl.width
         imageH = imageEl.height
 
+        e.preventDefault()
+        e.stopPropagation()		  
+        return false
+
     }
 }
 
@@ -59,6 +63,10 @@ const onTouchMove = (e) => {
         imageEl.style.position = 'absolute'
         imageEl.style.left = ox + 'px'
         imageEl.style.top = oy + 'px'
+
+        e.preventDefault()
+        e.stopPropagation()		  
+        return false
     }
     // Actively zooming in and out
     if (e.touches.length=== 2 && zoomPinchMode === 2) {
@@ -79,6 +87,10 @@ const onTouchMove = (e) => {
             imageEl.style.width = (imageW*scale) + 'px'
             imageEl.style.height = (imageH*scale) + 'px'
         }
+
+        e.preventDefault()
+        e.stopPropagation()		  
+        return false
 
     }
 }
