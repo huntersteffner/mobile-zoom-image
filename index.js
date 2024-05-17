@@ -11,6 +11,7 @@ let imageH
 let offsetX
 let offsetY
 let imageZoomed = false
+let tapCounter = 0
 
 
 const onTouchStart = (e) => {
@@ -131,6 +132,18 @@ const resetZoom = () => {
         imageEl.style.position = 'static'
     
         imageZoomed = false
+    }
+}
+
+const counterHandler = () => {
+    tapCounter++
+    if (tapCounter === 1) {
+        setTimeout(() => {
+            if (tapCounter !== 1) {
+                doubleTapZoom()
+            }
+        }, 500)
+        tapCounter = 0
     }
 }
 
