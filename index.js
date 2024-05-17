@@ -10,6 +10,7 @@ let imageW
 let imageH
 let offsetX
 let offsetY
+let imageZoomed = false
 
 
 const onTouchStart = (e) => {
@@ -51,7 +52,7 @@ const onTouchStart = (e) => {
 
 const onTouchMove = (e) => {
     // Dragging image around
-    if (e.touches.length === 1 & zoomPinchMode === 1) {
+    if (e.touches.length === 1 && zoomPinchMode === 1) {
         const ox = e.touches[0].clientX - offsetX
         const oy = e.touches[0].clientY - offsetY
         
@@ -87,6 +88,38 @@ const onTouchEnd = (e) => {
     imageW = imageEl.style.width
     imageH = imageEl.style.height
 
+}
+
+const doubleTapZoom = () => {
+    if (imageZoomed) {
+        resetZoom()
+    } else {
+        imageH = imageEl.offsetHeight
+        imageW = imageEl.offsetWidth
+
+        const newzoomImageH = imageH * 3
+        const newzoomImageW = imageW * 3
+
+        imageEl.style.height = `${newzoomImageH}px`
+        imageEl.style.width = `${newzoomImageW}px`
+        imageEl.style.position = 'absolute'
+        imageEl.style.left = `-${newzoomImageW * 0.33}px`
+        imageEl.style.top = `-${newzoomImageH * 0.33}px`
+
+        imageZoomed = true
+    }
+}
+
+const resetZoom = () => {
+    if (imageEl !== null && mode !== 2) {
+        imageEl.style.height = null
+        imageEl.style.width = null
+        imageEl.style.left = null
+        imageEl.style.top = null
+        imageEl.style.position = 'static'
+    
+        imageZoomed = false
+    }
 }
 
 fgDiv.addEventListener('touchstart', onTouchStart, false)
